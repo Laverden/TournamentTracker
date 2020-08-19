@@ -101,6 +101,22 @@ namespace TrackerUI
             }
         }
 
+        private void createTeamButton_Click(object sender, EventArgs e)
+        {
+            TeamModel t = new TeamModel();
+
+            t.TeamName = teamNameValue.Text;
+            t.TeamMembers = selectedTeamMembers;
+
+            t = GlobalConfig.Connection.CreateTeam(t);
+
+            // TODO - If the CreateForm is not closes after this, reset the form.
+        }
+
+        /// <summary>
+        /// Validates the AddMember fields.
+        /// </summary>
+        /// <returns>Whether or not the AddMembers sub-form is valid.</returns>
         private bool ValidateForm()
         {
             if (firstNameValue.Text.Length == 0)
