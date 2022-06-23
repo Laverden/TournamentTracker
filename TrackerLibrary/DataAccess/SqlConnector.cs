@@ -18,6 +18,12 @@ namespace TrackerLibrary.DataAccess
     public class SqlConnector : IDataConnection
     {
         private const string DB = "Tournaments";
+
+        /// <summary>
+        /// Saves a new person to the database.
+        /// </summary>
+        /// <param name="model">The person information</param>
+        /// <returns>The person information, including the unique identifier.</returns>
         public PersonModel CreatePerson(PersonModel model)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(DB)))
